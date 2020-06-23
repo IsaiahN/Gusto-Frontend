@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Gusto Login</title>
+		<link href="https://fonts.googleapis.com/css2?family=Padauk:wght@400;700&display=swap" rel="stylesheet">
+	<style>
+	body {font-family: 'Padauk', sans-serif;}
+	* {margin:0;padding:0;}
+	#wrapper {
+	background:#f4f4f3;
+	display:flex;
+	flex-direction:row;
+	}
+	#main_content {
+	background:#fbfafa;
+	height: 100vh;
+	width: 60%;
+	display:inline-flex;
+	padding: 5%;
+	}
+	div#sidenote {flex-basis:30%;}
+
+	.canvas {
+	width: 25%; 
+	}
+	.login {width:50%;display:block;}
+
+	.card {border: 1px solid #f2f2f2; background:#ffffff; padding: 40px;margin:30px;}
+	</style>
+	
+	</head>
+	<body>
+		<div id="wrapper">
+			<div id="main_content">
+				<object class="canvas left_canvas" type="image/svg+xml" data="Assets/leftimage.svg">
+					<img src="Assets/leftimage.svg" />
+				</object>
+				<div class="login">
+					<div class="card">
+						<object type="image/svg+xml" data="Assets/gusto.svg">
+							<img src="Assets/gusto.svg" />
+						</object>	
+						<form method="POST" action="#">
+						  <label for="email">Email Address</label>
+						  <input type="text" id="email" name="email">
+						  
+							<div class="input_group">
+							  <label for="password">Password</label>
+							  <input type="password" id="password" name="password">
+							  <a href="#forgotpassword" title="Forgot Login Details">Forgot email or password?</a>
+							</div>
+							<div class="input_group">
+								<input type="checkbox" id="local_storage" name="remember_login">
+								<label for="local_storage">Remember This Device <span class="info_icon">&#128712;</span></label>
+							</div>
+						  <button type="submit" value="Submit">Sign In</button>
+						</form> 
+
+						<div class="headline"><span>or sign in with</span></div>
+						
+						<div id="button_grid">
+							<button>
+								<object class="logo_icon" type="image/svg+xml" data="Assets/google.svg">
+									<img src="Assets/google.svg" />
+								</object>
+								Google
+							</button>
+							<button>
+								<object class="logo_icon" type="image/svg+xml" data="Assets/xero.svg">
+									<img src="Assets/xero.svg" />
+								</object>
+								Xero
+							</button>
+							<button>
+								<object class="logo_icon" type="image/svg+xml" data="Assets/intuit.svg">
+									<img src="Assets/intuit.svg" />
+								</object>
+								Intuit
+							</button>
+						</div>
+						<span>
+							Need help? 
+							<a href="#helpcenter" title="Help Center">Visit our Help Center.</a>
+						</span>
+					</div>
+					<ul class="footnote">
+						<li><a href="#signupuser" title="Employee Signup">Don't have an employee account?</a></li>
+						<li><a href="#signupcompany" title="Company Signup">Want to sign your company up with Gusto?</a></li>
+						<li>&copy; 2020 <a href="https://gusto.com" title="Gusto Payments">Gusto</a></li>
+					</ul>
+				</div>
+				<object class="canvas right_canvas" type="image/svg+xml" data="Assets/rightimage.svg">
+					<img src="Assets/rightimage.svg" />
+				</object>
+			</div>
+
+			<div id="sidenote">
+				<div class="card">
+					<object class="logo_icon" type="image/svg+xml" data="Assets/apple.svg">
+						<img src="Assets/apple.svg" />
+					</object>
+					<h5>We're here to support you.</h5>
+					<p>We know this isn't an easy time for small businesses or their teams. Sign in for information and guidance related to COVID-19.</p>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

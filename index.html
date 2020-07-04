@@ -6,44 +6,73 @@
 	<style>
 	body {font-family: 'Padauk', sans-serif;}
 	* {margin:0;padding:0;}
-	#wrapper {
-	background:#f4f4f3;
-	display:flex;
-	flex-direction:row;
-	}
-	#main_content {
-	background:#fbfafa;
-	height: 100vh;
-	width: 60%;
-	display:inline-flex;
-	padding: 5%;
-	}
-	div#sidenote {flex-basis:30%;}
+	#wrapper {background:#f4f4f3;display:flex;flex-direction:row;}
+	#main_content {background:#fbfafa;min-height: 100vh;width: 70%;display:inline-flex;padding: 1% 0%;}
+	div#sidenote {flex-basis:30%;align-items:center;display:flex;}
+	#sidenote .card {margin: 30px}
+	.canvas {width: 25%;}
+	.canvas.right_canvas {background:url("assets/rightimage.svg");background-position-y: 60%;}
+	.canvas.left_canvas {background:url("assets/leftimage.svg");background-position-y: center;}
+	.canvas.right_canvas, .canvas.left_canvas {background-size: contain;background-repeat:no-repeat;}
+	
+	.login {flex-basis:50%;display:block;}
 
-	.canvas {
-	width: 25%; 
-	}
-	.login {width:50%;display:block;}
+	.card {border: 1px solid #e4e0e0; border-radius:3px;background:#ffffff; padding: 40px;box-shadow: 0px 0px 10px #e0e0dc;}
+	.card input[type=text], .card input[type=password], button { border:none;border-radius:3px;display:block;width:90%;min-height:16px;}
+	.card input[type=text], .card input[type=password]  {background:#f4f4f3;border-bottom: 1px solid #a8a8ac;padding: 5%;}
+	.card label {font-weight:bold;color: #202020;font-size:1.1em;line-height:1.3em;}
+	.logo {text-align:center;margin-bottom:20px;}
 
-	.card {border: 1px solid #f2f2f2; background:#ffffff; padding: 40px;margin:30px;}
+	.input_group {margin-top:20px;}
+	.input_group a, span.help_center a, .footnote li a {color: #387e7f;text-decoration:none;font-weight:bold;line-height:1.8em;}
+	.input_group, form button, #button_grid button, span.help_center, .footnote li  {font-size:1em;line-height:1.2em;}
+	
+ 	form button {background: #387e7f;width:100%;padding: 3% 5%;color:white;font-weight:bold;margin: 20px auto;border: 1px solid #007273;}
+	form button img {vertical-align:middle;padding-right:5px;}
+	input#local_storage {display:inline !important;}
+	span.info_icon {color:#387e7f;line-height:1.2em;font-size:1.2em;vertical-align:middle;}
+
+	.headline {text-align:center;}
+	.headline hr {border:none;border-bottom: 1px solid #e0e0e0;}
+	.headline span {position:relative;bottom:0.8em;font-size:1em;line-height:1em;background:white;padding:2px 25px;}
+
+	#button_grid button {border: 1px solid #007273;background:transparent;padding:10px;width:100%;margin-bottom:14px;}
+    #button_grid button object {vertical-align:sub;min-height:20px;}
+	#button_grid button:nth-child(2), #button_grid button:nth-child(3) {width: 48%;float:left;}
+	#button_grid button:nth-child(2) {margin-right: 4%;}
+	
+	span.help_center {text-align:center;width: 100%;clear:both;display:block;}
+	span.help_center a {text-decoration:underline;}
+	
+	.footnote li {list-style:none;text-align:center;}
+	
+	@media only screen and (max-width: 700px) {
+    #wrapper {
+        flex-direction:column;
+    }
+    #sidenote, #main_content {width: 100%;}
+	.login {flex-basis:75%;margin: 0 auto;}
+	.canvas {flex-basis:12.5%;}
+	}
 	</style>
 	
 	</head>
 	<body>
 		<div id="wrapper">
 			<div id="main_content">
-				<object class="canvas left_canvas" type="image/svg+xml" data="Assets/leftimage.svg">
-					<img src="Assets/leftimage.svg" />
-				</object>
+				<div class="canvas left_canvas"></div>
 				<div class="login">
 					<div class="card">
-						<object type="image/svg+xml" data="Assets/gusto.svg">
-							<img src="Assets/gusto.svg" />
-						</object>	
+						<div class="logo">
+							<object type="image/svg+xml" data="Assets/gusto.svg" width="150">
+								<img src="Assets/gusto.svg" />
+							</object>	
+						</div>
 						<form method="POST" action="#">
-						  <label for="email">Email Address</label>
-						  <input type="text" id="email" name="email">
-						  
+							<div class="input_group">
+							  <label for="email">Email Address</label>
+							  <input type="text" id="email" name="email">
+							</div>
 							<div class="input_group">
 							  <label for="password">Password</label>
 							  <input type="password" id="password" name="password">
@@ -53,32 +82,32 @@
 								<input type="checkbox" id="local_storage" name="remember_login">
 								<label for="local_storage">Remember This Device <span class="info_icon">&#128712;</span></label>
 							</div>
-						  <button type="submit" value="Submit">Sign In</button>
+						  <button type="submit" value="Submit"><img src="Assets/lock.png" />Sign In</button>
 						</form> 
 
-						<div class="headline"><span>or sign in with</span></div>
+						<div class="headline"><hr/><span>or sign in with</span></div>
 						
 						<div id="button_grid">
 							<button>
-								<object class="logo_icon" type="image/svg+xml" data="Assets/google.svg">
+								<object class="logo_icon" type="image/svg+xml" data="Assets/google.svg" width="20">
 									<img src="Assets/google.svg" />
 								</object>
 								Google
 							</button>
 							<button>
-								<object class="logo_icon" type="image/svg+xml" data="Assets/xero.svg">
+								<object class="logo_icon" type="image/svg+xml" data="Assets/xero.svg" width="20">
 									<img src="Assets/xero.svg" />
 								</object>
 								Xero
 							</button>
 							<button>
-								<object class="logo_icon" type="image/svg+xml" data="Assets/intuit.svg">
+								<object class="logo_icon" type="image/svg+xml" data="Assets/intuit.svg" width="20">
 									<img src="Assets/intuit.svg" />
 								</object>
 								Intuit
 							</button>
 						</div>
-						<span>
+						<span class="help_center">
 							Need help? 
 							<a href="#helpcenter" title="Help Center">Visit our Help Center.</a>
 						</span>
@@ -89,16 +118,12 @@
 						<li>&copy; 2020 <a href="https://gusto.com" title="Gusto Payments">Gusto</a></li>
 					</ul>
 				</div>
-				<object class="canvas right_canvas" type="image/svg+xml" data="Assets/rightimage.svg">
-					<img src="Assets/rightimage.svg" />
-				</object>
+				<div class="canvas right_canvas"></div>
 			</div>
 
 			<div id="sidenote">
 				<div class="card">
-					<object class="logo_icon" type="image/svg+xml" data="Assets/apple.svg">
-						<img src="Assets/apple.svg" />
-					</object>
+					<img src="Assets/apple.svg" width="45" />
 					<h5>We're here to support you.</h5>
 					<p>We know this isn't an easy time for small businesses or their teams. Sign in for information and guidance related to COVID-19.</p>
 				</div>
